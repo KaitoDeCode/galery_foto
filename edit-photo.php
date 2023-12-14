@@ -4,14 +4,14 @@
 
 require "./koneksi.php";
     $photo_id = $_GET['photo_id'];
-    $sql = "SELECT * FROM photos WHERE photo_id = $photo_id";
+    $sql = "SELECT * FROM photos WHERE photos_id = $photo_id";
     $photo = mysqli_fetch_assoc(mysqli_query($conn, $sql));
     
 ?>
 <main class="px-10 py-10">  
         <form action="./proses-edit-photo.php" method="post" class="flex flex-col w-full gap-5" enctype="multipart/form-data" >
         <h2 class="text-xl font-bold text-center text-sky-600">Edit Gambar</h2>
-        <input type="hidden" name="photo_id" value="<?=$photo['photo_id']?>">
+        <input type="hidden" name="photos_id" value="<?=$photo['photos_id']?>">
         <input type="hidden" name="album_id" value="<?$photo['album_id'] ?>">
         <input type="hidden" name="gambar_lama" value="<?= $photo['file_foto']?>">
              <!-- judul -->

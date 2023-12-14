@@ -6,13 +6,19 @@
 
         $cekUser = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
 
+        // var_dump($username,$password,$cekUser["username"]);
+        // die;
 
 
         if(mysqli_num_rows($cekUser) > 0){
 
+            
             //cek password
             $row = mysqli_fetch_assoc($cekUser);
-            if(password_verify($password, $row["password"])){
+            //     var_dump($password,password_verify($password,$row["password"]));
+            // die;
+
+            if(password_verify($password,$row["password"])){
                 $_SESSION['user'] = $row["username"];
                 $_SESSION['user_id'] = $row["id"];
                 echo "<script>alert('Login Sukses')</script>";

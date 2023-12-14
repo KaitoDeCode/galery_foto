@@ -17,6 +17,8 @@ if(isset($_POST['submit'])){
          </script>";
       }
 
+    
+
     if(empty($username) || empty($password )){
         echo "<script>alert('data harus dilengkapi semuanya')</script>";
             echo "<script>window.location.href='register.php'</script>";
@@ -33,8 +35,9 @@ if(isset($_POST['submit'])){
         echo "<script>window.location.href='register.php'</script>";
         
     }else{
-        $password = password_hash($password,PASSWORD_DEFAULT);
-        $query = mysqli_query($conn,"INSERT INTO user(`username`,`password`) VALUES('$username','$password')");
+        $pwd = password_hash($password,PASSWORD_DEFAULT);
+        $query = mysqli_query($conn,"INSERT INTO user(`username`,`password`) VALUES('$username','$pwd')");
+        
         if($query){
             echo "<script>alert('Data berhasil ditambahkan')</script>";
             echo "<script>window.location.href='login.php'</script>";

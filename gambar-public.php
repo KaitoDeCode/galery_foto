@@ -24,11 +24,11 @@ $result = mysqli_query($conn, $sql);
                     <h2 class="text-xl font-bold text-sky-600"><?= $row['judul'] ?></h2>
                     <p class="h-20 overflow-hidden text-slate-500"><?= $row['deskripsi'] ?></p>
                     <div class="flex flex-row items-center justify-end gap-4">
-                        <a href="./komentar.php?photo_id=<?= $row['photo_id'] ?>">
+                        <a href="./komentar.php?photo_id=<?= $row['photos_id'] ?>">
                             <button class="px-3 py-1 text-white rounded-lg bg-sky-600 hover:bg-sky-800">Komentar</button>
                         </a>
                         <form action="./proses-tambah-favorite.php" method="post">
-                            <input type="hidden" name="photo_id" value="<?= $row['photo_id']?>">
+                            <input type="hidden" name="photo_id" value="<?= $row['photos_id']?>">
                             <button class="text-2xl duration-200 cursor-pointer text-slate-400 hover:text-slate-600 active:bg-slate-600" type="submit" name="submit" ><i class='fa fa-heart' aria-hidden='true'?></i></button>
                         </form>
                     </div>

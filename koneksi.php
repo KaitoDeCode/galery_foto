@@ -10,4 +10,6 @@
         die("Connection failed: ". $conn->connect_error);   
     }
 
+    // error_reporting(E_ALL);
+    // ini_set("display_errors", 1);
 ?>

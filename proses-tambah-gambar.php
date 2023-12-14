@@ -16,11 +16,15 @@
         $visibility = $_POST['visibility'];
         $album_id = $_POST['album_id'];
 
+       
+
         if(empty($judul) || empty($deskripsi) || empty($visibility)){
             echo "<script>alert('Upload Gagal ada salah satu data kosong')</script>";
             echo "<script>window.location.href='lihat-gambar.php?album_id=$album_id'</script>";
             return false;
         }
+
+        
 
         // $ekstensiGambarValid=['jpg','jpeg','png'];
         // $ekstensiGambar = explode('.',$fileGambar);
@@ -43,6 +47,8 @@
              exit;
          }
 
+         
+
         $newFileName = uniqid() . '.' . $ekstensiGambar;
 
         if($ukuranFileGambar > 1000000){
@@ -51,14 +57,15 @@
             return false;
         }
 
+        
         move_uploaded_file($tmpFileGambar,"uploads/" . $newFileName);
-
+        // var_dump();
         $sql = "INSERT INTO photos VALUES (null,$album_id,'$judul','$deskripsi','$newFileName','$visibility')";
+        // echo "aksdjkads";
         $query = mysqli_query($conn,$sql);
+       
 
         if($query){
-
-            
             echo "<script>alert('Upload Berhasil')</script>";
             echo "<script>window.location.href='lihat-gambar.php?album_id=$album_id'</script>";
             return false;

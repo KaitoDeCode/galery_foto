@@ -2,7 +2,7 @@
 require "./koneksi.php";
 
 if (isset($_POST['submit'])) {
-    $photo_id = $_POST['photo_id'];
+    $photo_id = $_POST['photos_id'];
     $judul = htmlspecialchars($_POST['judul']);
     $deskripsi = htmlspecialchars($_POST['deskripsi']);
     $visibility = $_POST['visibility'];
@@ -44,10 +44,10 @@ if (isset($_POST['submit'])) {
         unlink("./uploads/" . $gambar_lama);
 
         // Simpan gambar
-        $queryUpdateFoto = "UPDATE photos SET judul = '$judul', deskripsi = '$deskripsi', file_foto = '$newFileName', visibility = '$visibility' WHERE photo_id = $photo_id";
+        $queryUpdateFoto = "UPDATE photos SET judul = '$judul', deskripsi = '$deskripsi', file_foto = '$newFileName', visibility = '$visibility' WHERE photos_id = $photo_id";
     } else {
         // Jika tidak ada gambar yang diunggah
-        $queryUpdateFoto = "UPDATE photos SET judul = '$judul', deskripsi = '$deskripsi', visibility = '$visibility' WHERE photo_id = $photo_id";
+        $queryUpdateFoto = "UPDATE photos SET judul = '$judul', deskripsi = '$deskripsi', visibility = '$visibility' WHERE photos_id = $photo_id";
     }
 
     $result = mysqli_query($conn, $queryUpdateFoto);

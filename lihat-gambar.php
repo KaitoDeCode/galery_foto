@@ -72,9 +72,7 @@
                     <div class="flex flex-row justify-between">
                         
                         <?php
-                        if($visibility == 'public'){
-                            
-                            
+                        if($photo['visibility'] == 'public'){
                             ?>
                     <div class=""><?= $photo['visibility'] ?></div>
                     <?php } else {?>
@@ -82,8 +80,8 @@
                         <?php }?>
 
                         <div class="flex flex-row items-center justify-center gap-3">
-                            <a class="flex items-center justify-center w-8 h-8 text-lg text-white duration-200 bg-yellow-600 rounded-full hover:bg-yellow-800" href="edit-photo.php?photo_id=<?= $photo['photo_id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                            <a onclick="return confirm('Data anda akan dihapus, Yakin ?')" class="flex items-center justify-center w-8 h-8 text-lg text-white duration-200 bg-red-600 rounded-full hover:bg-red-800" href="hapus-photo.php?photo_id=<?=$photo['photo_id']?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            <a class="flex items-center justify-center w-8 h-8 text-lg text-white duration-200 bg-yellow-600 rounded-full hover:bg-yellow-800" href="edit-photo.php?photo_id=<?= $photo['photos_id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <a onclick="return confirm('Data anda akan dihapus, Yakin ?')" class="flex items-center justify-center w-8 h-8 text-lg text-white duration-200 bg-red-600 rounded-full hover:bg-red-800" href="hapus-photo.php?photo_id=<?=$photo['photos_id']?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
